@@ -48,13 +48,35 @@ The repository includes `install_3proxy.sh`, which:
 Run as root or with `sudo`:
 
 ```bash
+# Update and install required packages
 apt update
 apt install -y dos2unix curl wget
+
+# Download and prepare the installer
 wget https://raw.githubusercontent.com/KokeKoke1/proxy_installer/refs/heads/main/install_3proxy.sh -O install_3proxy.sh
 dos2unix install_3proxy.sh
 chmod +x install_3proxy.sh
-bash install_3proxy.sh
+
+# Run installer with optional arguments
+# Replace the values below with your preferred username, password, and ports
+bash install_3proxy.sh -u myuser -p MySecretPass -P 3128 -S 1080
 ```
+
+### Arguments / Legend 📝
+
+| Argument | Description | Default |
+|----------|------------|---------|
+| `-u USERNAME` | Proxy username | `proxy` |
+| `-p PASSWORD` | Proxy password | `1xD4CboitCayXXH51NlwiQCTI` |
+| `-P HTTP_PORT` | HTTP proxy port | `3128` |
+| `-S SOCKS_PORT` | SOCKS5 proxy port | `1080` |
+| `-h` | Show help and usage instructions | — |
+
+**Notes:**  
+- If no arguments are provided, the installer will use the default values.  
+- Make sure to run the script as **root** or with `sudo`.  
+- Passwords with special characters should be enclosed in single quotes (`'`) to avoid shell issues.
+
 
 Check service status:
 
